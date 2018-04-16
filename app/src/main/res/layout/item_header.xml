@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="130dp" />
+
+
+    <LinearLayout
+        android:paddingTop="@dimen/dp_1"
+        android:paddingBottom="@dimen/dp_1"
+        android:orientation="horizontal"
+        android:background="#A6A6A6"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@mipmap/ic_waring"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:layout_marginLeft="@dimen/dp_13"/>
+
+        <com.jiedaoqian.android.views.ScrollAdView
+            android:layout_marginLeft="@dimen/dp_3"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingTop="@dimen/dp_16"
+            android:background="@drawable/ripple_layout"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@mipmap/ic_pendded"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40" />
+
+            <TextView
+                android:text="闪电放款"
+                android:textColor="#4A61B8"
+                android:textSize="@dimen/sp_11"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingTop="@dimen/dp_16"
+            android:background="@drawable/ripple_layout"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@mipmap/ic_success"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40" />
+
+            <TextView
+                android:text="成功率高"
+                android:textColor="#4A61B8"
+                android:textSize="@dimen/sp_11"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingTop="@dimen/dp_16"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@drawable/ripple_layout"
+            android:clickable="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@mipmap/ic_min"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40" />
+
+            <TextView
+                android:text="利率最低"
+                android:textColor="#4A61B8"
+                android:textSize="@dimen/sp_11"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingTop="@dimen/dp_16"
+            android:orientation="vertical"
+            android:background="@drawable/ripple_layout"
+            android:clickable="true"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@mipmap/ic_max"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40" />
+
+            <TextView
+                android:text="额度最大"
+                android:textColor="#4A61B8"
+                android:textSize="@dimen/sp_11"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <include layout="@layout/line"/>
+
+</LinearLayout>

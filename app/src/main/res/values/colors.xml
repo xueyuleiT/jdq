@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="toolbar_back">#5e5e5e</color>
+
+    <color name="colorTitle">#4A61B8</color>
+
+    <color name="layout_item">#f5f5f5</color>
+
+    <color name="i_1">#ff5f5f</color>
+    <color name="i_2">#ff2727</color>
+    <color name="i_3">#000</color>
+    <color name="n_1">#333</color>
+    <color name="n_2">#666</color>
+    <color name="n_3">#999</color>
+    <color name="w_1">#2979ff</color>
+    <color name="w_2">#f2f2f2</color>
+    <color name="w_3">#e3e3e3</color>
+
+
+    <color name="progressbar_color">#5e5e5e</color>
+    <color name="progressbar_bg">#00ffffff</color>
+    <color name="progressbar_color_second">#99CC99</color>
+</resources>

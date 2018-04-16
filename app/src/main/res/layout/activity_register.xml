@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@android:color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/toolbar" />
+    <include layout="@layout/line"/>
+
+
+    <include layout="@layout/line"/>
+
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/dp_2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginLeft="@dimen/dp_13"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18" />
+
+
+        <TextView
+            android:id="@+id/tvTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:textSize="@dimen/sp_12"
+            android:textColor="#4A61B8"
+            android:text="成都市的万先生今日申请的1000元贷款已放款成功！"/>
+
+    </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/captchLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.jiedaoqian.android.views.ExtendClearEditText
+                android:id="@+id/edtPhone"
+                android:hint="请输入手机号"
+                android:textSize="17sp"
+                android:textColorHint="#d2d2d2"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:background="@drawable/r5_cw_b1"
+                android:layout_marginRight="@dimen/dp_30"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_17"
+                android:paddingTop="@dimen/dp_11"
+                android:paddingBottom="@dimen/dp_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@drawable/r5_cw_b1"
+                android:layout_marginRight="@dimen/dp_30"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_17"
+                android:paddingTop="@dimen/dp_11"
+                android:paddingBottom="@dimen/dp_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.jiedaoqian.android.views.ExtendClearEditText
+                    android:id="@+id/edtSms"
+                    android:background="@null"
+                    android:hint="请输入验证码"
+                    android:inputType="number"
+                    android:digits="0123456789"
+                    android:textSize="17sp"
+                    android:textColorHint="#d2d2d2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tvCaptch"
+                    android:text="获取验证码"
+                    android:textColor="#4A61B8"
+                    android:textSize="@dimen/sp_17"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="@dimen/dp_14"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <com.jiedaoqian.android.views.ExtendClearEditText
+                android:hint="请设置密码（6-12位字母或数字）"
+                android:id="@+id/edtPwd"
+                android:textSize="17sp"
+                android:textColorHint="#d2d2d2"
+                android:inputType="textPassword"
+                android:background="@drawable/r5_cw_b1"
+                android:layout_marginRight="@dimen/dp_30"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_17"
+                android:paddingTop="@dimen/dp_11"
+                android:paddingBottom="@dimen/dp_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvRegisterAgreement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_14"
+        android:text="点击“立即注册”即默认同意《用户注册协议》"
+        android:textColor="#bcbcbc"
+        android:textSize="@dimen/sp_10" />
+
+    <RelativeLayout
+        android:id="@+id/register"
+        android:paddingBottom="@dimen/dp_11"
+        android:paddingTop="@dimen/dp_10"
+        android:background="@drawable/shape_r5_c4a61b8"
+        android:layout_marginRight="@dimen/dp_30"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvMiddle"
+            android:text="登录放款"
+            android:textSize="@dimen/sp_17"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/dp_7"
+            android:textColor="#FDE01B"
+            android:text="最快3分钟下款!"
+            android:textSize="@dimen/sp_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvMiddle"
+            android:layout_toRightOf="@+id/tvMiddle"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_marginTop="@dimen/dp_17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="已经注册，去登录"
+        android:textColor="#4A61B8"
+        android:textSize="@dimen/sp_14"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_0"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/dp_42"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="57dp"
+                android:layout_height="57dp" />
+
+            <TextView
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="平均借款时间"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/n_3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25分钟"
+                android:textColor="#EACE10"
+                android:textSize="@dimen/sp_17"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="57dp"
+                android:layout_height="57dp" />
+
+            <TextView
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="促成贷款（元）"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/n_3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23342525"
+                android:textColor="#EACE10"
+                android:textSize="@dimen/sp_17"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="57dp"
+                android:layout_height="57dp" />
+
+            <TextView
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="成功借款人数"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/n_3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25343"
+                android:textColor="#EACE10"
+                android:textSize="@dimen/sp_17"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

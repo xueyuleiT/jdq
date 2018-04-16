@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    android:fitsSystemWindows="true"
+    android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:theme="@style/toolbar_theme">
+
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/imgLeft"
+        android:layout_width="@dimen/dp_28"
+        android:layout_height="@dimen/dp_28"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/dp_16"/>
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/imgClose"
+        android:src="@mipmap/ic_close"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_gravity="left"/>
+
+
+    <TextView
+        android:id="@+id/titleLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="left"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorTitle"
+        android:textSize="21sp"
+        android:textStyle="bold" />
+
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:textColor="@color/colorTitle"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp_17"/>
+
+    <TextView
+        android:id="@+id/titleRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="right"
+        android:textColor="@color/colorTitle"
+        android:textSize="21sp" />
+
+    <ImageView
+        android:id="@+id/rightImg"
+        android:visibility="gone"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_gravity="right"
+        />
+
+</android.support.v7.widget.Toolbar>

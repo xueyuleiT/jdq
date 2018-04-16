@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jiedaoqian.android.activitys.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cccccc" />
+    <RadioGroup
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimary"
+        android:id="@+id/rg"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <RadioButton
+            android:layout_gravity="center_vertical"
+            android:id="@+id/rbOne"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_check"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:drawableTop="@drawable/home"
+            android:text="首页"
+            android:textColor="#888888"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/rbTwo"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_check"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:drawableTop="@drawable/loan"
+            android:text="借款大全"
+            android:textColor="#888888"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/rbThree"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_check"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:drawableTop="@drawable/my"
+            android:paddingTop="4dp"
+            android:text="我的"
+            android:textColor="#888888"
+            android:textSize="10sp" />
+
+    </RadioGroup>
+
+
+</LinearLayout>
