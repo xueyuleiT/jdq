@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jiedaoqian.android.R;
+import com.jiedaoqian.android.activitys.LoanTypeActivity;
 import com.jiedaoqian.android.activitys.WebviewActivity;
 import com.jiedaoqian.android.login.LoginActivity;
 import com.jiedaoqian.android.models.BannerInfo;
@@ -37,7 +38,7 @@ import static com.jiedaoqian.android.models.MainProductInfo.VIEW_TYPE_HOT;
  * Created by zenghui on 2017/7/28.
  */
 
-public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener{
     List<MainProductInfo> list;
     Context context;
     public MainProductAdapter(Context context, List<MainProductInfo> list){
@@ -69,6 +70,12 @@ public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         final MainProductInfo mainProductInfo = list.get(position);
         if (mainProductInfo.getViewType() == MainProductInfo.VIEW_TYPE_HEADER){
             final HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
+
+            headerViewHolder.amountMaxLayout.setOnClickListener(this);
+            headerViewHolder.minLayout.setOnClickListener(this);
+            headerViewHolder.quickLayout.setOnClickListener(this);
+            headerViewHolder.succLayout.setOnClickListener(this);
+
             headerViewHolder.banner.setImageLoader(new GlideImageLoader());
             headerViewHolder.adView.initData(mainProductInfo.getAds(), (Activity) context);
             List<String> bannerPics = new ArrayList<>();
@@ -89,11 +96,11 @@ public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                     }
 
                     BannerInfo bannerInfo = list.get(position).getBannerInfoList().get(mPosition);
-                    if (!TextUtils.isEmpty(bannerInfo.getLinkUrl())){
+                    if (!TextUtils.isEmpty(bannerInfo.getLoanChannelsBean().getLoanUrl())){
                         int size = Common.scanHistory.size();
                         boolean find = false;
                         for (int i = 0; i < size; i ++){
-                            if (bannerInfo.getLinkUrl().equals(Common.scanHistory.get(i).getLoanUrl())){
+                            if (bannerInfo.getLoanChannelsBean().getLoanUrl().equals(Common.scanHistory.get(i).getLoanUrl())){
                                 find = true;
                                 break;
                             }
@@ -106,6 +113,7 @@ public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                             productHotInfo.setLoanUrl(bannerInfo.getLoanChannelsBean().getLoanUrl());
                             productHotInfo.setName(bannerInfo.getLoanChannelsBean().getName());
                             productHotInfo.setSubTitle(bannerInfo.getLoanChannelsBean().getSubTitle());
+                            productHotInfo.setStar(bannerInfo.getLoanChannelsBean().getStar());
                             productHotInfo.setReferenceAmount(bannerInfo.getLoanChannelsBean().getReferenceAmount());
                             productHotInfo.setTags(bannerInfo.getLoanChannelsBean().getTags());
                             Common.scanHistory.add(0,productHotInfo);
@@ -184,11 +192,19 @@ public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
                 }
             });
+
+            if (position == list.size() - 1){
+                hotViewHolder.line.setVisibility(View.GONE);
+            }else {
+                hotViewHolder.line.setVisibility(View.VISIBLE);
+            }
+
             Glide.with(context).load(HttpUtil.BASE_URL+hotInfo.getIconImageUrl()).into(hotViewHolder.imgUrl);
 
         }else if (mainProductInfo.getViewType() == MainProductInfo.VIEW_TYPE_ARROW){
             ArrowHolder arrowHolder = (ArrowHolder) holder;
             arrowHolder.title.setText(mainProductInfo.getTitle());
+            arrowHolder.imgHead.setImageResource(R.mipmap.ic_hot);
         }else {
             LoadingHolder loadingHolder = (LoadingHolder) holder;
             if (mainProductInfo.isShowLoading()){
@@ -200,13 +216,45 @@ public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     }
 
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()){
+            case R.id.succLayout:
+                intent = new Intent(context, LoanTypeActivity.class);
+                intent.putExtra("title","通过率高");
+                context.startActivity(intent);
+                break;
+            case R.id.minLayout:
+                intent = new Intent(context, LoanTypeActivity.class);
+                intent.putExtra("title","利率最低");
+                context.startActivity(intent);
+                break;
+            case R.id.amountMaxLayout:
+                intent = new Intent(context, LoanTypeActivity.class);
+                intent.putExtra("title","额度最大");
+                context.startActivity(intent);
+                break;
+            case R.id.quickLayout:
+                intent = new Intent(context, LoanTypeActivity.class);
+                intent.putExtra("title","闪电到账");
+                context.startActivity(intent);
+                break;
+        }
+    }
+
     class HeaderViewHolder extends RecyclerView.ViewHolder{
         Banner banner;
         ScrollAdView adView;
+        LinearLayout amountMaxLayout,minLayout,quickLayout,succLayout;
         public HeaderViewHolder(View itemView) {
             super(itemView);
             banner = itemView.findViewById(R.id.banner);
             adView = itemView.findViewById(R.id.adView);
+            amountMaxLayout = itemView.findViewById(R.id.amountMaxLayout);
+            minLayout = itemView.findViewById(R.id.minLayout);
+            quickLayout = itemView.findViewById(R.id.quickLayout);
+            succLayout = itemView.findViewById(R.id.succLayout);
         }
     }
 
@@ -223,7 +271,7 @@ public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         TextView tvTags,tvReferenceAmount,tvFundNum,tvSubTitle;
         ImageView imgUrl;
         LinearLayout starLayout;
-        View rootView;
+        View rootView,line;
         public HotViewHolder(View itemView) {
             super(itemView);
 
@@ -234,6 +282,7 @@ public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             tvSubTitle = itemView.findViewById(R.id.tvSubTitle);
             imgUrl = itemView.findViewById(R.id.imgUrl);
             starLayout = itemView.findViewById(R.id.starLayout);
+            line = itemView.findViewById(R.id.line);
 
 
         }
@@ -242,8 +291,10 @@ public class MainProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     class ArrowHolder extends RecyclerView.ViewHolder{
 
         TextView title;
+        ImageView imgHead;
         public ArrowHolder(View itemView) {
             super(itemView);
+            imgHead = itemView.findViewById(R.id.imgHead);
             title = itemView.findViewById(R.id.title);
         }
     }

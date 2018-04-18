@@ -140,8 +140,8 @@ public class MainFragment extends BaseFragment {
                             for (int i = 0 ; i < size ; i ++){
                                 ResBanner.LoanChannelsBean dataBean = dataBeans.get(i);
                                 BannerInfo bannerInfo = new BannerInfo();
-                                bannerInfo.setResUrl(HttpUtil.BASE_URL+dataBean.getBannerImageUrl());
-                                bannerInfo.setLinkUrl(HttpUtil.BASE_URL+dataBean.getLoanUrl());
+                                bannerInfo.setResUrl(dataBean.getBannerImageUrl().startsWith("http")?dataBean.getBannerImageUrl():HttpUtil.BASE_URL+dataBean.getBannerImageUrl());
+                                bannerInfo.setLinkUrl(dataBean.getLoanUrl().startsWith("http")?dataBean.getLoanUrl():HttpUtil.BASE_URL+dataBean.getLoanUrl());
                                 bannerInfo.setLoanChannelsBean(dataBean);
                                 bannerInfos.add(bannerInfo);
                             }

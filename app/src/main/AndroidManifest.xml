@@ -44,6 +44,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".activitys.LoanTypeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".register.RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />

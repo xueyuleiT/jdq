@@ -217,16 +217,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
                         if(HttpUtil.SUCCESS.equals(value.getCode())) {
                            ResLogin resLogin = value.getData();
-                            HttpUtil.ut = resLogin.getToken();
-                            SettingUtil.set(mContext,"token",resLogin.getToken());
-                            SettingUtil.set(mContext,"phone",edtSmsPhone.getText().toString().trim());
-                           showSuccessToast("登录成功");
+                           if (!TextUtils.isEmpty(resLogin.getToken())) {
+                               HttpUtil.ut = resLogin.getToken();
+                               SettingUtil.set(mContext, "token", resLogin.getToken());
+                               SettingUtil.set(mContext, "phone", edtSmsPhone.getText().toString().trim());
+                               showSuccessToast("登录成功");
 
-                            Common.scanHistory = SettingUtil.getObjFromSp(mContext,Common.scanSpName,Common.scanSpKey+SettingUtil.get(mContext,"phone",""));
-                            if (Common.scanHistory == null){
-                                Common.scanHistory = new ArrayList<>(30);
-                            }
-                           finish();
+                               Common.scanHistory = SettingUtil.getObjFromSp(mContext, Common.scanSpName, Common.scanSpKey + SettingUtil.get(mContext, "phone", ""));
+                               if (Common.scanHistory == null) {
+                                   Common.scanHistory = new ArrayList<>(30);
+                               }
+                               finish();
+                           }
                         }
 
                     }

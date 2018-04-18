@@ -105,7 +105,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener{
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                     getActivity().overridePendingTransition(com.jiedaoqian.android.R.anim.slide_bottom_in, com.jiedaoqian.android.R.anim.slide_bottom_out);
                 }else {
-                    DialogUtil.showChooseDialog(getActivity(), "联系我们", "xiaolongnv6660", "", "", 0, 0, false, new HandleDialogListener() {
+                    DialogUtil.showChooseDialog(getActivity(), "联系我们", "微信客服号:xiaolongnv6660", "", "", 0, 0, false, new HandleDialogListener() {
                         @Override
                         public void handle() {
                             ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
@@ -136,6 +136,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener{
     }
 
     void logout(){
+        DialogUtil.showLoading(getActivity(),"请求中...");
         Observable<Response<HttpBaseResponse<Object>>> observable = HttpUtil.getInstance().getHttpApi().logout();
         observable.compose(new RedirectRTransformer<Response<HttpBaseResponse<Object>>, HttpBaseResponse<Object>>())
                 .subscribe(new RedirectObserver<HttpBaseResponse<Object>>(getActivity()) {
@@ -169,11 +170,12 @@ public class MyFragment extends BaseFragment implements View.OnClickListener{
 
                     @Override
                     public void onError(Throwable e) {
-
+                        DialogUtil.dismissLoading();
                     }
 
                     @Override
                     public void onComplete() {
+                        DialogUtil.dismissLoading();
                     }
                 });
     }

@@ -92,6 +92,11 @@ public class ScanHistoryAdapter extends LoadMoreAdapter{
 
             }
         });
+        if (position == mDatas.size() - 1){
+            hotViewHolder.line.setVisibility(View.GONE);
+        }else {
+            hotViewHolder.line.setVisibility(View.VISIBLE);
+        }
         Glide.with(context).load(HttpUtil.BASE_URL+hotInfo.getIconImageUrl()).into(hotViewHolder.imgUrl);
     }
 
@@ -114,7 +119,7 @@ public class ScanHistoryAdapter extends LoadMoreAdapter{
         TextView tvTags,tvReferenceAmount,tvFundNum,tvSubTitle;
         ImageView imgUrl;
         LinearLayout starLayout;
-        View rootView;
+        View rootView,line;
         public HotViewHolder(View itemView) {
             super(itemView);
 
@@ -125,6 +130,7 @@ public class ScanHistoryAdapter extends LoadMoreAdapter{
             tvSubTitle = itemView.findViewById(R.id.tvSubTitle);
             imgUrl = itemView.findViewById(R.id.imgUrl);
             starLayout = itemView.findViewById(R.id.starLayout);
+            line = itemView.findViewById(R.id.line);
 
 
         }

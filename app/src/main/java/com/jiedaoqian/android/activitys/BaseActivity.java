@@ -46,6 +46,7 @@ public abstract class BaseActivity extends AppCompatActivity{
             int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+
         }
 
 

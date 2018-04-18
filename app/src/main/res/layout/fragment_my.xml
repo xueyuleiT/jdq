@@ -121,12 +121,17 @@
 
     </LinearLayout>
 
-    <View
+    <RelativeLayout
+        android:background="@android:color/white"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_0.5"
-        android:layout_marginLeft="@dimen/dp_13"
-        android:layout_marginRight="@dimen/dp_13"
-        android:background="#d2d2d2"/>
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0.5"
+            android:layout_marginLeft="@dimen/dp_13"
+            android:layout_marginRight="@dimen/dp_13"
+            android:background="#d2d2d2"/>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/aboutusLayout"
@@ -156,11 +161,16 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_0.5"
-        android:layout_marginLeft="@dimen/dp_13"
-        android:layout_marginRight="@dimen/dp_13"
-        android:background="#d2d2d2"/>
+    <!--<RelativeLayout-->
+        <!--android:background="@android:color/white"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/dp_0.5"-->
+            <!--android:layout_marginLeft="@dimen/dp_13"-->
+            <!--android:layout_marginRight="@dimen/dp_13"-->
+            <!--android:background="#d2d2d2"/>-->
+    <!--</RelativeLayout>-->
 
 </LinearLayout>
